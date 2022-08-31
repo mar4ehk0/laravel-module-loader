@@ -1,0 +1,37 @@
+{
+    "name": "mar4ehk0/module-loader",
+    "description": "Loads modules",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Marchenko",
+            "email": "mar4ehk0@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mar4ehk0\\ModuleLoader\\": "src/"
+        }
+    },
+    "autoload-dev": {
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "scripts": {
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mar4ehk0\\ModuleLoader\\ModuleLoaderServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
