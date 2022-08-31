@@ -34,8 +34,14 @@ class ModuleLoaderServiceProvider extends ServiceProvider
 
     protected function bootRoutes(): void
     {
-        $this->loadRoutesFrom(glob($this->modulesPath . '/*/Routes', GLOB_ONLYDIR));
+        $paths = glob($this->modulesPath . '/*/Routes', GLOB_ONLYDIR);
+        if (empty($paths)) {
+            return;
+        }
 
+        foreach ($paths as $path) {
+            $this->loadRoutesFrom($path);
+        }
 //        foreach ($this->modulesName as $moduleName) {
 //            $path = $this->modulesPath . '/' . $moduleName . '/Routes/web.php';
 //            $this->loadRoutesFrom($path);
